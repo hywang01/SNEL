@@ -1,3 +1,4 @@
+python=3.7.13
 torch>=1.12.1
 torchvision>=0.13.1
 torchxrayvision==0.0.38
