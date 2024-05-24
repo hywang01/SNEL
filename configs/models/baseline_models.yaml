@@ -1,0 +1,72 @@
+###########################
+# Model
+###########################
+
+# Path to model weights (for initialization)
+baseline_only: True
+backbone: resnet18
+backbone_pretrained: True
+pretrained_weights_path: "/media/userdisk0/pretrained_weights/resnet18-5c106cde.pth"
+#init_weights: "/media/userdisk0/pretrained_weights/
+# resnet18-5c106cde.pth
+# resnet50-19c8e357.pth
+# densenet121-a639ec97.pth
+
+###########################
+# Model (specific)
+###########################
+model_name: 'baseline_model'
+
+###########################
+# Optimization
+###########################
+# training scheme
+peer_training: False
+
+# loss function
+loss_name: 'bce'
+loss_gjs_weight: [0.1, 0.9]
+
+# warmup
+optim_warmup: False
+optim_warmup_loss: 'bce'
+optim_warmup_n_epoch: 2
+
+optim_name: "sgd"
+optim_lr: 0.01
+optim_weight_decay: 1e-4
+optim_momentum: 0.9
+# hyperparameters for SGD
+optim_sgd_dampning: 0
+optim_sgd_nesterov: True
+optim_rmsprop_alpha: 0.99
+# the following also apply to other
+# adaptive optimizers like adamw
+optim_adam_beta1: 0.9
+optim_adam_beta2: 0.999
+# staged_lr allows different layers to have
+# different lr, e.g. pre-trained base layers
+# can be assigned a smaller lr than the new
+# classification layer
+optim_staged_lr: False
+#optim_new_layers: []
+optim_base_lr_mult: 0.1
+# learning rate scheduler
+# https://blog.csdn.net/qq_38406029/article/details/115064277
+# AVAI_SCHEDS = ["single_step", "multi_step", "cosine"]
+optim_lr_scheduler: "cosine"
+# -1 or 0 means the stepsize is equal to max_epoch
+optim_stepsize: [5, 10, 15]
+optim_gamma: 0.1
+optim_max_epoch: 50
+# set warmup_epoch larger than 0 to activate warmup training
+optim_warmup_epoch: -1
+# either linear or constant
+optim_warmup_type: "linear"
+# constant learning rate when type=constant
+optim_warmup_cons_lr: 1e-5
+# minimum learning rate when type=linear
+optim_warmup_min_lr: 1e-5
+# recount epoch for the next scheduler (last_epoch=-1)
+# otherwise last_epoch=warmup_epoch
+optim_warmup_recount: True

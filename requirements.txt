@@ -1,0 +1,7 @@
+torch>=1.12.1
+torchvision>=0.13.1
+torchxrayvision==0.0.38
+shapley==1.0.3
+omegaconf=2.2.3
+wandb==0.13.4
+hydra-core==1.2.0

@@ -1,0 +1,38 @@
+###########################
+# Train
+###########################
+trainer_name: 'snel'
+train_mode: True
+
+# How often (epoch) to save model during training
+# Set to 0 or negative value to only save the last one
+train_checkpoint_freq: 0
+# How often (batch) to print training information
+train_print_freq: 10
+# Use 'train_x', 'train_u' or 'smaller_one' to count
+# the number of iterations in an epoch (for DA and SSL)
+#train_count_iter: "train_x"
+
+# early stop
+# number of epochs to wait before early stop, set a int > 0 to enable
+# set False to disable
+early_stop: False
+save_best_model: True
+# mode and metric for model performance monitoring. set 'off' to disable
+## monitor: "min val_loss"
+monitor_mode: 'max'
+monitor_metric: 'val_average_auc'
+
+###########################
+# Test
+###########################
+test_evaluator: "cxr_auc"
+test_per_class_result: False
+# If no_test=True, no testing will be conducted
+test_no_test: False
+# Use test or val set for FINAL evaluation
+test_split: "test"
+# Which model to test after training (last_epoch or best_val)
+# If best_val, evaluation is done every epoch (if val data
+# is unavailable, test data will be used)
+test_final_model: "last_epoch"

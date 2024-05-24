@@ -1,0 +1,39 @@
+###########################
+# Config definition
+###########################
+
+
+# Directory to save the output files (like log.txt and model weights)
+output_dir: "./data"
+# Directory to save the output files (like log.txt and model weights)
+#ckpt_dir: "./outputs/"
+# Path to a directory where the files were saved previously
+resume: False
+# Set seed to negative value to randomize everything
+# Set seed to positive value (>0) to use a fixed seed
+seed: -1
+# Set GPU
+# Set N_GPU_USE to 0 if there is no GPU
+# Set N_GPU_USE to positive value to use GPUs
+use_cuda: True
+n_gpu_use: 1
+# Print detailed information
+# E.g. trainer, dataset, and backbone
+verbose: True
+
+# if debugging
+debugging: False
+
+# settings for wandb loggers
+exp_name: ''
+exp_group: 'SOTA'
+exp_desc_notes: 'date_'
+
+
+defaults:
+  - _self_
+  - inputs: default_inputs
+  - datasets: nih # NIH, CheXpert, etc.
+  - models: default_models
+  - trainers: default_trainers
+

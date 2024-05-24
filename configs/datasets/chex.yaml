@@ -1,0 +1,44 @@
+###########################
+# Dataset
+###########################
+
+# Directory where datasets are stored
+data_root: ""
+name: "chex"
+
+# Percentage of validation data (only used for SSL datasets)
+# Set to 0 if do not want to use val data
+val_percent: 0.2
+dataset_dir: './CheXpert'
+dataset_label_dir: '../data'
+
+###########################
+# Dataloader
+###########################
+train_num_workers: 4
+# apply transformations to an image k times (during training)
+k_transforms: 1
+# img0 denotes image tensor without augmentation
+# useful for consistency learning
+return_img0: False
+# setting for the train data-loader
+train_batch_size: 16
+# if shuffle
+train_shuffle: True
+# setting for the test data-loader
+test_num_workers: 12
+test_batch_size: 32
+# if shuffle
+test_shuffle: False
+
+# if class-balanced sampling
+balanced_sampling: False
+
+###########################
+# Label setting
+###########################
+num_classes: 7
+finding_names: ["Atelectasis", 
+                "Cardiomegaly", "Consolidation",
+                "Edema", "Pleural Effusion",
+                "Pneumonia", "Pneumothorax"]
